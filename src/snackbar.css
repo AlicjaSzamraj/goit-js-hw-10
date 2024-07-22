@@ -1,0 +1,17 @@
+.form {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .delay-label {
+    display: flex;
+    flex-direction: column;
+  }
+  .timeout {
+    height: 30px;
+  }
+  .button {
+    border-radius: 0;
+    border: 1px solid;
+  }
