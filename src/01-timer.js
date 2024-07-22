@@ -21,7 +21,6 @@ const options = {
     console.log(userSelectedDate);
     if (userSelectedDate < new Date()) {
       iziToast.error({
-        title: 'Error',
         message: 'Please choose a date in the future',
       });
       button.disabled = true;
