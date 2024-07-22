@@ -1,0 +1,2 @@
+import{i as o}from"./vendor-77e16229.js";const n=document.querySelector(".button");n.addEventListener("click",t=>{t.preventDefault();const e=document.querySelector(".delay").value,l=document.querySelector('input[name="state"]:checked').value;new Promise((s,i)=>{setTimeout(()=>{l==="fulfilled"?s(e):i(e)},e)}).then(s=>{o.show({message:`✅ Fulfilled promise in ${e}ms`}),console.log(`Fulfilled promise in ${e}ms`)}).catch(s=>{o.show({message:`❌ Rejected promise in ${e}ms`}),console.log(`Rejected promise in ${e}ms`)})});
+//# sourceMappingURL=02-snackbar-8097c378.js.map
