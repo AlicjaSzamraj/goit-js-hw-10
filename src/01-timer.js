@@ -52,8 +52,12 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-function formatTime(time) {
-  return time < 10 ? `0${time}` : time;
+console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
+console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
 }
 
 function updateCountdown(targetDate) {
@@ -62,17 +66,12 @@ function updateCountdown(targetDate) {
 
   const { days, hours, minutes, seconds } = convertMs(difference);
 
-  daysElement.textContent = formatTime(days);
-  hoursElement.textContent = formatTime(hours);
-  minutesElement.textContent = formatTime(minutes);
-  secondsElement.textContent = formatTime(seconds);
+  daysElement.textContent = addLeadingZero(days);
+  hoursElement.textContent = addLeadingZero(hours);
+  minutesElement.textContent = addLeadingZero(minutes);
+  secondsElement.textContent = addLeadingZero(seconds);
 
-  if (
-    daysElement.textContent === '00' &&
-    hoursElement.textContent === '00' &&
-    minutesElement.textContent === '00' &&
-    secondsElement.textContent === '00'
-  ) {
+  if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
     clearInterval(countdownInterval);
     button.disabled = false;
     inputEl.removeAttribute('disabled');
