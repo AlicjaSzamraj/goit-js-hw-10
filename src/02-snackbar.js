@@ -5,7 +5,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 button.addEventListener('click', evt => {
   evt.preventDefault();
 
-  const timeout = document.querySelector('.timeout').value;
+  const delay = document.querySelector('.delay').value;
   const isFulfilled = document.querySelector(
     'input[name="state"]:checked'
   ).value;
@@ -13,26 +13,24 @@ button.addEventListener('click', evt => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (isFulfilled === 'fulfilled') {
-        resolve(timeout);
+        resolve(delay);
       } else {
-        reject(timeout);
+        reject(delay);
       }
-    }, timeout);
+    }, delay);
   });
 
   promise
     .then(message => {
       iziToast.show({
-        title: 'Fulfill',
-        message: `Fulfilled promise in ${timeout}ms`,
+        message: `✅ Fulfilled promise in ${delay}ms`,
       });
-      console.log(`Fulfilled promise in ${timeout}ms`);
+      console.log(`Fulfilled promise in ${delay}ms`);
     })
     .catch(error => {
-      iziToast.error({
-        title: 'Reject',
-        message: `Rejected promise in ${timeout}ms`,
+      iziToast.show({
+        message: `❌ Rejected promise in ${delay}ms`,
       });
-      console.log(`Rejected promise in ${timeout}ms`);
+      console.log(`Rejected promise in ${delay}ms`);
     });
 });

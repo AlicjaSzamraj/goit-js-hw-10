@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="snackbar.css" />
-</head>
-<body>
+  </head>
+  <body>
     <form class="form">
+      <label class="delay-label">
+        Delay (ms)
+        <input type="number" name="delay" class="delay" required />
+      </label>
+
+      <fieldset class="fieldset">
+        <legend>State</legend>
         <label>
-          Delay (ms)
-          <input type="number" name="delay" required />
+          <input
+            type="radio"
+            name="state"
+            value="fulfilled"
+            class="isFulfilled"
+            required
+          />
+          Fulfilled
         </label>
-      
-        <fieldset>
-          <legend>State</legend>
-          <label>
-            <input type="radio" name="state" value="fulfilled" required />
-            Fulfilled
-          </label>
-          <label>
-            <input type="radio" name="state" value="rejected" required />
-            Rejected
-          </label>
-        </fieldset>
-      
-        <button type="submit">Create notification</button>
-      </form>
-      <script type="module" src="02-snackbar.js" defer></script>
-</body>
+        <label>
+          <input
+            type="radio"
+            name="state"
+            value="rejected"
+            class="isFulfilled"
+            required
+          />
+          Rejected
+        </label>
+      </fieldset>
+
+      <button type="submit" class="button">Create notification</button>
+    </form>
+    <script type="module" src="02-snackbar.js" defer></script>
+  </body>
 </html>
