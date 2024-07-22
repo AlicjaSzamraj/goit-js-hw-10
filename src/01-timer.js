@@ -20,7 +20,6 @@ const options = {
     let userSelectedDate = selectedDates[0];
     console.log(userSelectedDate);
     if (userSelectedDate < new Date()) {
-      // window.alert('Please choose a date in the future');
       iziToast.error({
         title: 'Error',
         message: 'Please choose a date in the future',
@@ -51,6 +50,10 @@ function convertMs(ms) {
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
+}
+
+function formatTime(time) {
+  return time < 10 ? `0${time}` : time;
 }
 
 function updateCountdown(targetDate) {
@@ -88,23 +91,4 @@ button.addEventListener('click', () => {
   button.disabled = true;
 
   inputEl.setAttribute('disabled', '');
-});
-
-function formatTime(time) {
-  return time < 10 ? `0${time}` : time;
-}
-
-const resetButton = document.querySelector('.reset');
-resetButton.addEventListener('click', event => {
-  event.preventDefault();
-
-  clearInterval(countdownInterval);
-
-  button.disabled = false;
-  inputEl.removeAttribute('disabled');
-
-  daysElement.textContent = '00';
-  hoursElement.textContent = '00';
-  minutesElement.textContent = '00';
-  secondsElement.textContent = '00';
 });

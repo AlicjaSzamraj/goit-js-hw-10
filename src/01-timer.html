@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timer</title>
+    <script type="module" src="01-timer.js" defer></script>
     <link rel="stylesheet" href="timer.css" />
+    <title>Timer</title>
   </head>
   <body>
     <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
+    <button type="button" class="button" data-start>Start</button>
 
     <div class="timer">
       <div class="field">
@@ -28,6 +29,5 @@
         <span class="label">Seconds</span>
       </div>
     </div>
-    <script type="module" src="01-timer.js" defer></script>
   </body>
 </html>
