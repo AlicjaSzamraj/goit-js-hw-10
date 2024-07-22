@@ -1,2 +1,2 @@
 import{i as o}from"./vendor-77e16229.js";const n=document.querySelector(".button");n.addEventListener("click",s=>{s.preventDefault();const e=document.querySelector(".timeout").value,i=document.querySelector('input[name="state"]:checked').value;new Promise((t,l)=>{setTimeout(()=>{i==="fulfilled"?t(e):l(e)},e)}).then(t=>{o.show({title:"Fulfill",message:`Fulfilled promise in ${e}ms`}),console.log(`Fulfilled promise in ${e}ms`)}).catch(t=>{o.error({title:"Reject",message:`Rejected promise in ${e}ms`}),console.log(`Rejected promise in ${e}ms`)})});
-//# sourceMappingURL=02-snackbar-cc6e8101.js.map
+//# sourceMappingURL=02-snackbar-4c0d634c.js.map
